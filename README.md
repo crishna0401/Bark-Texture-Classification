@@ -1,11 +1,11 @@
 # Bark-Texture-Images-Classification
 Image classification task can be performed on  BarkVN-50 dataset. Data consists of 50 categories of bark texture images. Total number is 5,578 images.
 
-Dataset on [kaggle](https://www.kaggle.com/datasets/saurabhshahane/barkvn50)
+Download the Dataset on [kaggle](https://www.kaggle.com/datasets/saurabhshahane/barkvn50)
 
 #multiclass image classification
 
-Download best model weights from [link]()
+Download best model weights from [link](https://drive.google.com/file/d/1BqqQIu9ZhTtS-Bt3AZaa5MhPupA8Rm23/view?usp=sharing) and keep in the same folder of the notebook
 
 ## Loading best model
 ```python
