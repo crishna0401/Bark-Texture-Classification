@@ -4,3 +4,33 @@ Image classification task can be performed on  BarkVN-50 dataset. Data consists 
 Dataset on [kaggle](https://www.kaggle.com/datasets/saurabhshahane/barkvn50)
 
 #multiclass image classification
+
+Download best model weights from [link]()
+
+## Loading best model
+```python
+import torch
+import torch.nn as nn
+from torchvision import models
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# load model
+model = models.resnet50(weights=models. ResNet50_Weights.DEFAULT)
+
+# Freeze model weights
+for param in model.parameters():
+    param.requires_grad = False
+
+# Replace last layer for transfer learning
+model.fc = nn.Sequential(
+                      nn.Linear(model.fc.in_features, 256), 
+                      nn.ReLU(), 
+                      nn.Dropout(0.4),
+                      nn.Linear(256, num_classes),                   
+                      nn.LogSoftmax(dim=1))
+
+model.load_state_dict(torch.load('model.ckpt'))
+model.to(device)
+model.eval() # comment this line if you are not evaluating
+```
